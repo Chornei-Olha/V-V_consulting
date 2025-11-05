@@ -18,6 +18,7 @@ export default function PopupForm({ isOpen, onClose }: { isOpen: boolean; onClos
   const [phone, setPhone] = useState('');
   const [contactMethod, setContactMethod] = useState('Дзвінок');
   const [showThankYou, setShowThankYou] = useState(false);
+  const [selectedTariff, setSelectedTariff] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -201,6 +202,27 @@ export default function PopupForm({ isOpen, onClose }: { isOpen: boolean; onClos
                           value={item}
                           checked={contactMethod === item}
                           onChange={() => setContactMethod(item)}
+                          className="w-4 h-4 accent-[#1663d3]"
+                        />
+                        <span className="text-[14px]">{item}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-[18px] font-semibold mb-2 text-[#202020]">
+                    Який тариф обираєте:
+                  </label>
+                  <div className="flex gap-4 text-black flex-wrap">
+                    {['Start', 'Company', 'Business', 'Elite', 'маю питання'].map((item) => (
+                      <label key={item} className="flex items-center gap-2 cursor-pointer">
+                        <input
+                          type="radio"
+                          name="tariff"
+                          value={item}
+                          checked={selectedTariff === item}
+                          onChange={() => setSelectedTariff(item)}
                           className="w-4 h-4 accent-[#1663d3]"
                         />
                         <span className="text-[14px]">{item}</span>
