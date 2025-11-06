@@ -39,13 +39,15 @@ export default function PopupForm({ isOpen, onClose }: { isOpen: boolean; onClos
       );
 
       // 2️⃣ Отправляем в Telegram через наш API
-      const tgResp = await fetch('https://trust-call.vercel.app/send.php', {
+      const tgResp = await fetch('https://trust-call.com/send.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name,
-          phone: `${selectedCountry.code} ${phone}`,
-          message: `Заявка з PopupForm (${contactMethod})`,
+          name, // 👤 Имя
+          phone: `${selectedCountry.code} ${phone}`, // 📞 Телефон
+          contact_way: contactMethod, // 💬 Как связаться
+          tariff: selectedTariff, // 💼 Тариф
+          message: `Заявка з PopupForm (${contactMethod})`, // 📝 Сообщение
         }),
       });
 

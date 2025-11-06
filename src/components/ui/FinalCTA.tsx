@@ -39,13 +39,15 @@ export default function FinalCTA() {
       );
 
       // 2️⃣ Telegram
-      await fetch('https://trust-call.vercel.app/send.php', {
+      await fetch('https://trust-call.com/send.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name,
-          phone: `${selectedCountry.code} ${phone}`,
-          message: `Зв'язатися через: ${contactMethod} (форма FinalCTA)`,
+          name, // 👤 Имя
+          phone: `${selectedCountry.code} ${phone}`, // 📞 Телефон
+          contact_way: contactMethod, // 💬 Как связаться
+          tariff: selectedTariff, // 💼 Тариф
+          message: `Заявка з PopupForm (${contactMethod})`, // 📝 Сообщение
         }),
       });
 
