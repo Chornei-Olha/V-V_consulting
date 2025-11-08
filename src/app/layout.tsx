@@ -12,7 +12,7 @@ export const metadata = {
   title: 'GLA',
   description: 'GLA',
   icons: {
-    icon: [{ url: '/favicon-v2.ico' }],
+    icon: [{ url: '/favicon.png' }],
   },
 };
 
