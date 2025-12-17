@@ -32,7 +32,7 @@ export default function Header() {
         <div className="flex items-center">
           <Link href="/" className="block">
             <Image
-              src="/images/logo_blue.webp"
+              src="/images/logo1.png"
               alt="Logo"
               width={133}
               height={55}
@@ -43,7 +43,7 @@ export default function Header() {
         </div>
 
         {/* Десктоп меню по центру */}
-        <nav className="hidden md:flex items-center space-x-8 text-lg font-medium font-montserrat text-gray-700 mx-auto relative">
+        <nav className="hidden md:flex items-center space-x-16 text-lg font-medium font-montserrat text-gray-700 mx-auto relative">
           <Link href="/" className="hover:text-[#fec104]">
             Головна
           </Link>
@@ -71,20 +71,14 @@ export default function Header() {
                   transition={{ duration: 0.2, ease: 'easeOut' }}
                   className="absolute top-full left-0 mt-2 w-48 bg-white border rounded-lg shadow-lg z-50 overflow-hidden"
                 >
-                  <Link href="/legalServices" className="block px-4 py-2 hover:bg-yellow-100">
+                  <Link href="/legal" className="block px-4 py-2 hover:bg-yellow-100">
                     Юридичні
                   </Link>
-                  <Link href="/marrone" className="block px-4 py-2 hover:bg-yellow-100">
-                    Аудиторські
+                  <Link href="/finance" className="block px-4 py-2 hover:bg-yellow-100">
+                    Фінансові
                   </Link>
-                  <Link href="/rossa" className="block px-4 py-2 hover:bg-yellow-100">
-                    Аутсорсинг
-                  </Link>
-                  <Link href="/oro" className="block px-4 py-2 hover:bg-yellow-100">
-                    Оцінка
-                  </Link>
-                  <Link href="/duct" className="block px-4 py-2 hover:bg-yellow-100">
-                    Бухгалтерські
+                  <Link href="/consulting" className="block px-4 py-2 hover:bg-yellow-100">
+                    Консалтинг
                   </Link>
                 </motion.div>
               )}
@@ -137,20 +131,14 @@ export default function Header() {
               </button>
               {productOpen && (
                 <div className="flex flex-col pl-4 mt-3 space-y-3">
-                  <Link href="/legalServices" onClick={() => setIsOpen(false)}>
+                  <Link href="/legal" onClick={() => setIsOpen(false)}>
                     Юридичні
                   </Link>
-                  <Link href="/marrone" onClick={() => setIsOpen(false)}>
-                    Аудиторські
+                  <Link href="/finance" onClick={() => setIsOpen(false)}>
+                    Фінансові
                   </Link>
-                  <Link href="/rossa" onClick={() => setIsOpen(false)}>
-                    Аутсорсинг
-                  </Link>
-                  <Link href="/oro" onClick={() => setIsOpen(false)}>
-                    Оцінка
-                  </Link>
-                  <Link href="/duct" onClick={() => setIsOpen(false)}>
-                    Бухгалтерські
+                  <Link href="/consulting" onClick={() => setIsOpen(false)}>
+                    Консалтинг
                   </Link>
                 </div>
               )}

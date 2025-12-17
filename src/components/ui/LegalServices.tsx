@@ -1,170 +1,8 @@
-// 'use client';
-
-// import { motion } from 'framer-motion';
-
-// export default function LegalServices() {
-//   return (
-//     <main className="text-gray-800">
-//       {/* HERO SECTION */}
-//       <section
-//         className="relative h-[90vh] flex items-center justify-center text-center bg-cover bg-center"
-//         style={{
-//           backgroundImage:
-//             "url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1920&q=80')",
-//         }}
-//       >
-//         <div className="absolute inset-0 bg-black/50"></div>
-//         <div className="relative z-10 max-w-3xl px-6">
-//           <motion.h1
-//             initial={{ opacity: 0, y: 40 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 0.8 }}
-//             className="text-4xl md:text-6xl font-bold text-white mb-6"
-//           >
-//             Юридичні послуги для бізнесу та приватних клієнтів
-//           </motion.h1>
-//           <motion.p
-//             initial={{ opacity: 0, y: 30 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             transition={{ delay: 0.3, duration: 0.8 }}
-//             className="text-lg md:text-xl text-gray-200 mb-8"
-//           >
-//             Консультування, захист, супровід. Ми — ваш надійний партнер у правовій сфері.
-//           </motion.p>
-//           <motion.a
-//             href="#contact"
-//             whileHover={{ scale: 1.05 }}
-//             className="bg-blue-700 text-white px-8 py-3 rounded-full font-medium hover:bg-blue-800 transition"
-//           >
-//             Отримати консультацію
-//           </motion.a>
-//         </div>
-//       </section>
-
-//       {/* SERVICES */}
-//       <section id="services" className="py-20 bg-gray-50">
-//         <div className="max-w-6xl mx-auto px-6">
-//           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Наші послуги</h2>
-//           <div className="grid md:grid-cols-3 gap-8">
-//             {[
-//               {
-//                 title: 'Податкова перевірка',
-//                 text: 'Супровід, підготовка документів, оскарження результатів перевірки.',
-//               },
-//               {
-//                 title: 'Податкове консультування',
-//                 text: 'Аналіз системи оподаткування, планування та оптимізація.',
-//               },
-//               {
-//                 title: 'ТЦУ (трансфертне ціноутворення)',
-//                 text: 'Підготовка звітів, аналіз, консультації у сфері ТЦУ.',
-//               },
-//               {
-//                 title: 'Судова практика',
-//                 text: 'Захист інтересів у судах усіх інстанцій, договірні та корпоративні спори.',
-//               },
-//               {
-//                 title: 'Інтелектуальна власність',
-//                 text: 'Реєстрація ТМ і патентів, ліцензування, авторське право.',
-//               },
-//               {
-//                 title: 'Приватні клієнти',
-//                 text: 'Інвестиції, міграційні питання, управління капіталом.',
-//               },
-//             ].map((item, i) => (
-//               <motion.div
-//                 key={i}
-//                 whileHover={{ y: -5 }}
-//                 className="bg-white p-8 shadow-md rounded-2xl transition"
-//               >
-//                 <h3 className="text-xl font-semibold mb-3 text-blue-800">{item.title}</h3>
-//                 <p className="text-gray-600">{item.text}</p>
-//               </motion.div>
-//             ))}
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* ABOUT */}
-//       <section id="about" className="py-20 bg-white">
-//         <div className="max-w-5xl mx-auto px-6 text-center">
-//           <h2 className="text-3xl md:text-4xl font-bold mb-6">Про нас</h2>
-//           <p className="text-lg text-gray-600 leading-relaxed">
-//             Ми — команда професійних юристів із багаторічним досвідом у сфері податкового,
-//             корпоративного та цивільного права. Наша мета — надати бізнесу та приватним клієнтам
-//             надійну юридичну підтримку на кожному етапі.
-//           </p>
-//         </div>
-//       </section>
-
-//       {/* ADVANTAGES */}
-//       <section id="advantages" className="py-20 bg-blue-800 text-white">
-//         <div className="max-w-6xl mx-auto px-6">
-//           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Чому обирають нас</h2>
-//           <div className="grid md:grid-cols-3 gap-8 text-center">
-//             {[
-//               {
-//                 title: '10+ років досвіду',
-//                 text: 'Ми розуміємо потреби бізнесу та пропонуємо дієві рішення.',
-//               },
-//               {
-//                 title: 'Комплексний підхід',
-//                 text: 'Від аналізу документів до судового захисту — повний юридичний супровід.',
-//               },
-//               {
-//                 title: 'Індивідуальні рішення',
-//                 text: 'Підходимо до кожного клієнта з урахуванням його особливостей.',
-//               },
-//             ].map((adv, i) => (
-//               <div key={i} className="p-6 bg-blue-700/40 rounded-2xl">
-//                 <h3 className="text-xl font-semibold mb-2">{adv.title}</h3>
-//                 <p className="text-gray-200">{adv.text}</p>
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* CONTACT */}
-//       <section id="contact" className="py-20 bg-gray-50">
-//         <div className="max-w-4xl mx-auto px-6 text-center">
-//           <h2 className="text-3xl md:text-4xl font-bold mb-6">Зв’яжіться з нами</h2>
-//           <p className="text-gray-600 mb-8">
-//             Ми відповімо на ваш запит і допоможемо знайти найкраще рішення.
-//           </p>
-//           <form className="grid gap-4 max-w-xl mx-auto">
-//             <input
-//               type="text"
-//               placeholder="Ваше ім’я"
-//               className="border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-600 outline-none"
-//             />
-//             <input
-//               type="email"
-//               placeholder="Email"
-//               className="border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-600 outline-none"
-//             />
-//             <textarea
-//               placeholder="Ваше повідомлення"
-//               rows={4}
-//               className="border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-600 outline-none"
-//             />
-//             <button
-//               type="submit"
-//               className="bg-blue-700 text-white font-medium py-3 rounded-lg hover:bg-blue-800 transition"
-//             >
-//               Надіслати
-//             </button>
-//           </form>
-//         </div>
-//       </section>
-//     </main>
-//   );
-// }
-
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 const services = [
   {
@@ -277,15 +115,18 @@ export default function LegalServices() {
   return (
     <main className="text-gray-900">
       {/* HERO */}
-      <section
-        className="relative h-[70vh] md:h-[80vh] flex items-center"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1920&q=80')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
+      <section className="relative h-[70vh] md:h-[70vh] flex items-center overflow-hidden">
+        <Image
+          src="/images/bg1.png"
+          alt="Legal and business consulting"
+          fill
+          priority
+          className="object-cover"
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
+
+        <div className="relative z-10 max-w-6xl mx-auto px-6">{/* контент без изменений */}</div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent"></div>
         <div className="relative z-10 max-w-6xl mx-auto px-6">
           <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight">

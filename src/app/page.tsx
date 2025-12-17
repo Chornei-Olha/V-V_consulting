@@ -3,8 +3,11 @@ import React from 'react';
 import Header from '../components/ui/Header';
 import HeroSection from '../components/ui/HeroSection';
 import AboutSection from '../components/ui/AboutSection';
-import WhyJoinSection from '../components/ui/WhyJoinSection';
-import InsightsSection from '../components/ui/InsightsSection';
+// import WhyJoinSection from '../components/ui/WhyJoinSection';
+// import InsightsSection from '../components/ui/InsightsSection';
+import DirectionsSection from '../components/ui/DirectionsSection';
+import HowWeWork from '../components/ui/HowWeWork';
+import WhyUs from '../components/ui/WhyUs';
 import Footer from '../components/ui/Footer';
 
 const LandingPage: React.FC = () => {
@@ -13,8 +16,11 @@ const LandingPage: React.FC = () => {
       <Header />
       <HeroSection />
       <AboutSection />
-      <WhyJoinSection />
-      <InsightsSection />
+      <DirectionsSection />
+      <HowWeWork />
+      <WhyUs />
+      {/* <WhyJoinSection /> */}
+      {/* <InsightsSection /> */}
       <Footer />
     </div>
   );

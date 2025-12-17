@@ -1,7 +1,5 @@
 import React from 'react';
 import '../styles/index.css';
-import { GoogleTagManager } from '@next/third-parties/google';
-import { GoogleAnalytics } from '@next/third-parties/google';
 
 export const viewport = {
   width: 'device-width',
@@ -9,8 +7,8 @@ export const viewport = {
 };
 
 export const metadata = {
-  title: 'GLA',
-  description: 'GLA',
+  title: 'V&V',
+  description: 'V&V consulting',
   icons: {
     icon: [{ url: '/favicon.png' }],
   },
