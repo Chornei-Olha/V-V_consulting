@@ -8,7 +8,7 @@ export default function HeroSection() {
     <section className="relative w-full h-[600px] flex items-center overflow-hidden">
       {/* Фоновое изображение */}
       <Image
-        src="/images/bg2.png"
+        src="/images/bg2.webp"
         alt="Business consulting background"
         fill
         priority

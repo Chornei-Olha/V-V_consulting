@@ -32,7 +32,7 @@ export default function Header() {
         <div className="flex items-center">
           <Link href="/" className="block">
             <Image
-              src="/images/logo1.png"
+              src="/images/logo1.webp"
               alt="Logo"
               width={133}
               height={55}
@@ -74,10 +74,10 @@ export default function Header() {
                   <Link href="/legal" className="block px-4 py-2 hover:bg-yellow-100">
                     Юридичні
                   </Link>
-                  <Link href="/finance" className="block px-4 py-2 hover:bg-yellow-100">
+                  <Link href="/legal" className="block px-4 py-2 hover:bg-yellow-100">
                     Фінансові
                   </Link>
-                  <Link href="/consulting" className="block px-4 py-2 hover:bg-yellow-100">
+                  <Link href="/legal" className="block px-4 py-2 hover:bg-yellow-100">
                     Консалтинг
                   </Link>
                 </motion.div>
@@ -134,10 +134,10 @@ export default function Header() {
                   <Link href="/legal" onClick={() => setIsOpen(false)}>
                     Юридичні
                   </Link>
-                  <Link href="/finance" onClick={() => setIsOpen(false)}>
+                  <Link href="/legal" onClick={() => setIsOpen(false)}>
                     Фінансові
                   </Link>
-                  <Link href="/consulting" onClick={() => setIsOpen(false)}>
+                  <Link href="/legal" onClick={() => setIsOpen(false)}>
                     Консалтинг
                   </Link>
                 </div>
