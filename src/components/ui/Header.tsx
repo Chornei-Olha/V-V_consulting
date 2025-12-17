@@ -34,8 +34,8 @@ export default function Header() {
             <Image
               src="/images/logo1.webp"
               alt="Logo"
-              width={133}
-              height={55}
+              width={100}
+              height={42}
               priority
               className="cursor-pointer"
             />
