@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 const directions = [
@@ -14,6 +15,7 @@ const directions = [
       'Інтелектуальна власність',
     ],
     accent: 'from-blue-700 to-blue-900',
+    link: '/legal',
   },
   {
     title: 'Фінансові послуги',
@@ -26,6 +28,7 @@ const directions = [
       'CFO as a Service',
     ],
     accent: 'from-emerald-600 to-emerald-800',
+    link: '/legal-services',
   },
   {
     title: 'Бізнес-консалтинг',
@@ -38,6 +41,7 @@ const directions = [
       'Вихід на міжнародні ринки',
     ],
     accent: 'from-amber-500 to-amber-700',
+    link: '/legal-services',
   },
 ];
 
@@ -88,14 +92,15 @@ export default function DirectionsSection() {
                 </ul>
 
                 <div className="mt-8">
-                  <button
+                  <Link
+                    href={item.link}
                     className="inline-flex items-center gap-2 text-sm font-medium text-white px-5 py-2.5 rounded-full
                     bg-gradient-to-r from-gray-900 to-gray-700
                     hover:from-gray-800 hover:to-gray-600 transition"
                   >
                     Детальніше
                     <span className="transition group-hover:translate-x-1">→</span>
-                  </button>
+                  </Link>
                 </div>
               </div>
             </motion.div>
