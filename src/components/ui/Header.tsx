@@ -37,7 +37,7 @@ export default function Header() {
               width={100}
               height={42}
               priority
-              className="cursor-pointer"
+              className="cursor-pointer ml-6 sm:ml-0"
             />
           </Link>
         </div>
@@ -99,7 +99,7 @@ export default function Header() {
         </div>
 
         {/* Мобильная кнопка (бургер) */}
-        <div className="md:hidden">
+        <div className="md:hidden mr-6">
           <button onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
             {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
