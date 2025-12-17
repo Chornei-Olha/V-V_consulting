@@ -50,9 +50,7 @@ export default function BoardSlider() {
 
   return (
     <div id="slider1" className="w-full text-center relative py-12">
-      <h2 className="text-[36px] sm:text-[48px] md:text-[56px] font-medium font-dm mb-8">
-        Про нас
-      </h2>
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Про нас</h2>
 
       <div className="relative max-w-7xl mx-auto">
         {/* Стрелки (десктоп) */}
@@ -159,7 +157,7 @@ export default function BoardSlider() {
                 <p className="font-bold font-inter text-[16px] text-[#09234B] mt-[15px]">
                   {member.position}
                 </p>
-                <p className="font-regular font-inter text-[16px] mt-[15px] flex-grow line-clamp-3">
+                <p className="font-regular font-inter text-[16px] mt-[15px] line-clamp-2">
                   {member.description}
                 </p>
                 <div className="mt-[20px] flex justify-center">
