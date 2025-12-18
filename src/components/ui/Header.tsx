@@ -72,13 +72,13 @@ export default function Header() {
                   className="absolute top-full left-0 mt-2 w-48 bg-white border rounded-lg shadow-lg z-50 overflow-hidden"
                 >
                   <Link href="/legal" className="block px-4 py-2 hover:bg-yellow-100">
-                    Юридичні
+                    Юридичні послуги
                   </Link>
                   <Link href="/legal" className="block px-4 py-2 hover:bg-yellow-100">
-                    Фінансові
+                    Бухгалтерський консалтинг
                   </Link>
                   <Link href="/legal" className="block px-4 py-2 hover:bg-yellow-100">
-                    Консалтинг
+                    Бізнес-консалтинг
                   </Link>
                 </motion.div>
               )}
@@ -132,13 +132,13 @@ export default function Header() {
               {productOpen && (
                 <div className="flex flex-col pl-4 mt-3 space-y-3">
                   <Link href="/legal" onClick={() => setIsOpen(false)}>
-                    Юридичні
+                    Юридичні послуги
                   </Link>
                   <Link href="/legal" onClick={() => setIsOpen(false)}>
-                    Фінансові
+                    Бухгалтерський консалтинг
                   </Link>
                   <Link href="/legal" onClick={() => setIsOpen(false)}>
-                    Консалтинг
+                    Бізнес-консалтинг
                   </Link>
                 </div>
               )}

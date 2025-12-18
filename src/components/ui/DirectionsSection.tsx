@@ -18,7 +18,7 @@ const directions = [
     link: '/legal',
   },
   {
-    title: 'Фінансові послуги',
+    title: 'Бухгалтерський консалтинг',
     description: [
       'Аутсорсинг бухгалтерії',
       'МСФЗ / GAAP',
@@ -31,7 +31,7 @@ const directions = [
     link: '/legal-services',
   },
   {
-    title: 'Бізнес',
+    title: 'Бізнес-консалтинг',
     description: [
       'Аудит бізнес-процесів',
       'Стратегія та масштабування',
