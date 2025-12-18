@@ -82,7 +82,7 @@ export default function Header() {
         <div className="hidden md:flex items-center gap-4">
           <button
             onClick={() => console.log('Открыть форму обратной связи')}
-            className="bg-[#fec104] text-black font-semibold px-6 py-2 rounded-full hover:bg-[#fddc6e] transition"
+            className="bg-[#2E334E] text-white px-6 py-3 rounded-full border border-white/20 font-medium hover:bg-white/5 hover:text-white transition"
           >
             Зв’язатися з нами
           </button>
@@ -145,7 +145,7 @@ export default function Header() {
             {/* Кнопка обратной связи внизу (мобильная) */}
             <button
               onClick={() => console.log('Открыть форму обратной связи')}
-              className="mt-6 bg-[#fec104] text-black font-semibold rounded-md px-6 py-2 hover:bg-[#fddc6e] transition"
+              className="bg-[#2E334E] text-white px-6 py-3 rounded-full border border-white/20 font-medium hover:bg-white/5 hover:text-white transition"
             >
               Зв’язатися з нами
             </button>

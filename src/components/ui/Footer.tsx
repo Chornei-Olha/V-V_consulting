@@ -7,109 +7,117 @@ export default function ContactSectionDark() {
   return (
     <section id="footer" className="bg-gray-900 py-20 text-gray-100">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-14 max-w-3xl"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-white">Звʼяжіться з нами</h2>
-          <p className="mt-4 text-gray-300">
-            Залиште запит — ми повернемось до вас із рішенням, а не загальною консультацією.
-          </p>
-        </motion.div>
-
-        {/* Grid */}
-        <div className="grid gap-12 md:grid-cols-3 items-start">
-          {/* LEFT — CONTACTS */}
+        <div className="grid gap-12 md:grid-cols-3 items-stretch">
+          {/* LEFT — LOGO */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-6"
+            className="order-1 flex justify-center md:justify-start items-start"
           >
-            <div>
-              <p className="text-sm text-gray-400">Телефон</p>
-              <p className="text-lg font-medium text-blue-400">+380 (12) 345-67-89</p>
-            </div>
-
-            <div>
-              <p className="text-sm text-gray-400">Email</p>
-              <p className="text-lg font-medium text-blue-400">info@miysait.com</p>
-            </div>
-
-            <div>
-              <p className="text-sm text-gray-400 mb-2">Месенджери</p>
-              <div className="flex gap-3">
-                {['F', 'I', 'X', 'T'].map((m) => (
-                  <span
-                    key={m}
-                    className="w-10 h-10 rounded-full bg-blue-400 text-gray-900 flex items-center justify-center font-bold"
-                  >
-                    {m}
-                  </span>
-                ))}
-              </div>
-            </div>
+            <Link href="/">
+              <img
+                src="/images/logo_black.webp"
+                alt="V&V consulting"
+                className="h-[120px] sm:h-[180px] w-auto opacity-90 hover:opacity-100 transition"
+              />
+            </Link>
           </motion.div>
 
-          {/* CENTER — FORM */}
+          {/* CENTER — TEXT + CONTACTS */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="bg-gray-800 rounded-2xl shadow-lg p-8"
+            transition={{ duration: 0.6 }}
+            className="order-3 md:order-2 flex flex-col justify-between h-full"
           >
-            <form className="space-y-4">
-              <input
-                type="text"
-                placeholder="Ваше імʼя"
-                required
-                className="w-full border border-gray-600 rounded-lg px-4 py-3 bg-gray-900 text-gray-100 focus:ring-2 focus:ring-blue-400 outline-none"
-              />
-              <input
-                type="email"
-                placeholder="Email"
-                required
-                className="w-full border border-gray-600 rounded-lg px-4 py-3 bg-gray-900 text-gray-100 focus:ring-2 focus:ring-blue-400 outline-none"
-              />
-              <textarea
-                placeholder="Опишіть вашу ситуацію"
-                rows={4}
-                required
-                className="w-full border border-gray-600 rounded-lg px-4 py-3 bg-gray-900 text-gray-100 focus:ring-2 focus:ring-blue-400 outline-none"
-              />
+            <div>
+              <h2 className="text-3xl font-bold text-white">Звʼяжіться з нами</h2>
+              <p className="mt-4 text-gray-300">
+                Залиште запит — ми повернемось до вас із рішенням, а не загальною консультацією.
+              </p>
+            </div>
 
-              <button
-                type="submit"
-                className="w-full bg-blue-400 text-gray-900 py-3 rounded-lg font-medium hover:bg-blue-500 transition"
-              >
-                Отримати консультацію
-              </button>
+            <div className="space-y-6 mt-10">
+              <div>
+                <p className="text-sm text-gray-400">Телефон</p>
+                <a
+                  href="tel:+380123456789"
+                  className="text-lg font-medium text-blue-400 hover:underline"
+                >
+                  +380 (12) 345-67-89
+                </a>
+              </div>
 
-              <p className="text-xs text-gray-400 text-center">Ваша інформація конфіденційна</p>
-            </form>
+              <div>
+                <p className="text-sm text-gray-400">Email</p>
+                <a
+                  href="mailto:info@miysait.com"
+                  className="text-lg font-medium text-blue-400 hover:underline"
+                >
+                  info@miysait.com
+                </a>
+              </div>
+
+              <div>
+                <p className="text-sm text-gray-400 mb-2">Месенджери</p>
+                <div className="flex gap-3">
+                  {['F', 'I', 'X', 'T'].map((m) => (
+                    <span
+                      key={m}
+                      className="w-10 h-10 rounded-full bg-blue-400 text-gray-900 flex items-center justify-center font-bold"
+                    >
+                      {m}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
           </motion.div>
 
-          {/* RIGHT — LEGAL */}
+          {/* RIGHT — FORM */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex justify-center md:justify-end items-start"
+            className="order-2 md:order-3 h-full"
           >
-            <Link href="/" className="block">
-              <img
-                src="/images/logo_black.webp"
-                alt="V&V consulting"
-                className="h-[100px] sm:h-[200px] w-auto opacity-90 hover:opacity-100 transition"
-              />
-            </Link>
+            <div className="bg-gray-800 rounded-2xl shadow-lg p-8 h-full flex flex-col justify-between">
+              <form className="space-y-4">
+                <input
+                  type="text"
+                  placeholder="Ваше імʼя"
+                  required
+                  className="w-full border border-gray-600 rounded-lg px-4 py-3 bg-gray-900 text-gray-100 focus:ring-2 focus:ring-blue-400 outline-none"
+                />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  required
+                  className="w-full border border-gray-600 rounded-lg px-4 py-3 bg-gray-900 text-gray-100 focus:ring-2 focus:ring-blue-400 outline-none"
+                />
+                <textarea
+                  placeholder="Опишіть вашу ситуацію"
+                  rows={6}
+                  required
+                  className="w-full border border-gray-600 rounded-lg px-4 py-3 bg-gray-900 text-gray-100 focus:ring-2 focus:ring-blue-400 outline-none"
+                />
+
+                <button
+                  type="submit"
+                  className="w-full bg-blue-400 text-gray-900 py-3 rounded-lg font-medium hover:bg-blue-500 transition"
+                >
+                  Отримати консультацію
+                </button>
+              </form>
+
+              <p className="text-xs text-gray-400 text-center mt-6">
+                Ваша інформація конфіденційна
+              </p>
+            </div>
           </motion.div>
         </div>
       </div>

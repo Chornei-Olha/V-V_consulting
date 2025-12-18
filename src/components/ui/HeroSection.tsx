@@ -28,10 +28,12 @@ export default function HeroSection() {
         <div className="mt-16 flex flex-col sm:flex-row gap-4">
           <a
             href="#contact"
-            className="inline-block bg-[#fec104] text-black px-6 py-3 rounded-full border border-white/20 font-medium hover:bg-white/5 hover:text-white transition"
+            className="inline-block bg-blue-400 text-white px-6 py-3 rounded-full border border-white/20 font-medium hover:bg-white/5 hover:text-white transition 
+             shadow-lg animate-pulse-slow"
           >
             Отримати консультацію
           </a>
+
           <a
             href="#services"
             className="inline-block text-white/90 px-6 py-3 rounded-full border border-white/20 hover:bg-white/5 transition text-center"

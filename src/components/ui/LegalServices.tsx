@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Disclosure } from '@headlessui/react';
 import { ChevronUpIcon } from '@heroicons/react/20/solid';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const directions = [
   {
@@ -89,16 +90,18 @@ export default function LegalPage() {
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
             <a
               href="#contact"
-              className="inline-block bg-[#fec104] text-black px-6 py-3 rounded-full border border-white/20 font-medium hover:bg-white/5 hover:text-white transition"
+              className="inline-block bg-blue-400 text-white px-6 py-3 rounded-full border border-white/20 font-medium hover:bg-white/5 hover:text-white transition 
+             shadow-lg animate-pulse-slow"
             >
               Отримати консультацію
             </a>
-            <a
-              href="#services"
+
+            <Link
+              href="/#services"
               className="inline-block text-white/90 px-6 py-3 rounded-full border border-white/20 hover:bg-white/5 transition text-center"
             >
               Наші послуги
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -139,27 +142,13 @@ export default function LegalPage() {
 
         {/* Як ми працюємо */}
         <div className="mb-12">
-          <h2 className="text-2xl font-semibold mb-6">Як ми працюємо</h2>
+          <h2 className="text-2xl font-semibold mb-6 text-[#2E334E]">Як ми працюємо</h2>
           <ol className="list-decimal list-inside space-y-2 text-gray-700">
             <li>Аналіз потреб клієнта та визначення задач</li>
             <li>Розробка стратегії та плану дій</li>
             <li>Виконання робіт та супровід</li>
             <li>Звітність та контроль результату</li>
           </ol>
-        </div>
-
-        {/* CTA */}
-        <div className="text-center">
-          <h2 className="text-2xl font-semibold mb-4">Готові співпрацювати?</h2>
-          <p className="text-gray-700 mb-6">
-            Заповніть форму і ми зв’яжемося з вами для детальної консультації.
-          </p>
-          <a
-            href="/contact"
-            className="inline-block px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition"
-          >
-            Зв’язатися з нами
-          </a>
         </div>
       </div>
     </>
