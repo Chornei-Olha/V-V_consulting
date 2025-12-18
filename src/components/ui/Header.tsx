@@ -17,7 +17,7 @@ export default function Header() {
 
   return (
     <header className="border-b shadow-sm">
-      <div className="container mx-auto flex items-center justify-between py-5">
+      <div className="container mx-auto flex items-center justify-between py-3">
         {/* Лого */}
         <div className="flex items-center">
           <Link href="/" className="block">
