@@ -65,10 +65,10 @@ export default function Header() {
                     Юридичні послуги
                   </Link>
                   <Link href="/legal" className="block px-4 py-2 hover:bg-yellow-100">
-                    Бухгалтерський консалтинг
+                    Бухгалтерські послуги
                   </Link>
                   <Link href="/legal" className="block px-4 py-2 hover:bg-yellow-100">
-                    Бізнес-консалтинг
+                    Бізнес послуги
                   </Link>
                 </motion.div>
               )}
@@ -125,10 +125,10 @@ export default function Header() {
                     Юридичні послуги
                   </Link>
                   <Link href="/legal" onClick={() => setIsOpen(false)}>
-                    Бухгалтерський консалтинг
+                    Бухгалтерські послуги
                   </Link>
                   <Link href="/legal" onClick={() => setIsOpen(false)}>
-                    Бізнес-консалтинг
+                    Бізнес послуги
                   </Link>
                 </div>
               )}
