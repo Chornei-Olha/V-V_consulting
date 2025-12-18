@@ -90,7 +90,7 @@ export default function LegalPage() {
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
             <a
               href="#contact"
-              className="inline-block bg-blue-400 text-white px-6 py-3 rounded-full border border-white/20 font-medium hover:bg-white/5 hover:text-white transition 
+              className="inline-block bg-blue-400 text-white px-6 py-3 rounded-full border border-white/20 font-medium hover:bg-white/5 hover:text-white transition text-center 
              shadow-lg animate-pulse-slow"
             >
               Отримати консультацію
