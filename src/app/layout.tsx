@@ -7,10 +7,10 @@ export const viewport = {
 };
 
 export const metadata = {
-  title: 'V&V',
+  title: 'V&V consulting',
   description: 'V&V consulting',
   icons: {
-    icon: [{ url: '/favicon.png' }],
+    icon: [{ url: '/favicon.webp' }],
   },
 };
 

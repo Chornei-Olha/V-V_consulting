@@ -15,16 +15,6 @@ export default function Header() {
   const router = useRouter();
   const pathname = usePathname();
 
-  // хелпер для стилей активной ссылки
-  // const linkClass = (href: string) =>
-  //   `px-3 py-1 rounded-full transition-colors ${
-  //     pathname === href ? 'bg-[#fec104] text-black' : 'hover:text-black'
-  //   }`;
-
-  // useEffect(() => {
-  //   document.body.style.overflow = isOpen ? 'hidden' : '';
-  // }, [isOpen]);
-
   return (
     <header className="border-b shadow-sm">
       <div className="container mx-auto flex items-center justify-between py-5">
@@ -32,10 +22,10 @@ export default function Header() {
         <div className="flex items-center">
           <Link href="/" className="block">
             <Image
-              src="/images/logo1.webp"
+              src="/images/logo.webp"
               alt="Logo"
-              width={100}
-              height={42}
+              width={70}
+              height={30}
               priority
               className="cursor-pointer ml-6 sm:ml-0"
             />
