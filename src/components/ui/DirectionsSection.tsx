@@ -31,7 +31,7 @@ const directions = [
     link: '/legal-services',
   },
   {
-    title: 'Бізнес-консалтинг',
+    title: 'Бізнес',
     description: [
       'Аудит бізнес-процесів',
       'Стратегія та масштабування',
