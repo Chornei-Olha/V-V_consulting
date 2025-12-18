@@ -27,7 +27,7 @@ const reasons = [
 
 export default function WhyUs() {
   return (
-    <section className="py-20 bg-blue-800 text-white">
+    <section className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -37,8 +37,8 @@ export default function WhyUs() {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <h2 className="text-3xl md:text-4xl font-bold">Чому ми</h2>
-          <p className="mt-4 text-blue-100 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#2E334E]">Чому ми</h2>
+          <p className="mt-4 text-gray-600 max-w-3xl mx-auto">
             Наш підхід базується на досвіді, відповідальності та довгостроковій співпраці.
           </p>
         </motion.div>
@@ -52,10 +52,19 @@ export default function WhyUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.15, duration: 0.6 }}
-              className="bg-white/15 rounded-2xl p-6 backdrop-blur-sm"
+              className="
+                bg-white
+                border border-gray-200
+                rounded-2xl
+                p-6
+                shadow-sm
+                hover:shadow-md
+                hover:border-blue-400
+                transition
+              "
             >
-              <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
-              <p className="text-blue-100">{item.text}</p>
+              <h3 className="text-xl font-semibold mb-3 text-[#2E334E]">{item.title}</h3>
+              <p className="text-gray-600">{item.text}</p>
             </motion.div>
           ))}
         </div>
