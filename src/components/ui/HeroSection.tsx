@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full h-[600px] flex items-center overflow-hidden">
+    <section className="relative w-full min-h-[600px] h-screen flex items-center overflow-hidden">
       {/* Фоновое изображение */}
       <Image
         src="/images/bg2.webp"
@@ -18,7 +18,7 @@ export default function HeroSection() {
       {/* Затемняющий оверлей (по желанию) */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
       <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-0">
-        <h1 className="text-4xl md:text-6xl font-semibold text-white leading-tight text-">
+        <h1 className="text-4xl md:text-6xl font-semibold text-white leading-tight">
           Комплексний юридичний фінансовий, бізнес-консалтинговий супровід бізнесу{' '}
         </h1>
         <p className="text-xl md:text-2xl mt-16 text-gray-200 max-w-4xl">
