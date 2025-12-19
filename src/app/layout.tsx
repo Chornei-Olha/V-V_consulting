@@ -1,5 +1,12 @@
 import React from 'react';
 import '../styles/index.css';
+import { Quattrocento } from 'next/font/google';
+
+const quattrocento = Quattrocento({
+  subsets: ['latin'],
+  weight: ['400', '700'], // обычный и жирный
+  display: 'swap',
+});
 
 export const viewport = {
   width: 'device-width',
@@ -21,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ua">
-      <body>
+      <body className={quattrocento.className}>
         {children}
         <script
           type="module"

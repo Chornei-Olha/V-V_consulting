@@ -34,7 +34,7 @@ export default function Header() {
 
         {/* Десктоп меню по центру */}
         <nav className="hidden md:flex items-center space-x-16 text-lg font-medium font-montserrat text-gray-700 mx-auto relative">
-          <Link href="/" className="hover:text-[#fec104]">
+          <Link href="/" className="hover:text-blue-400">
             Головна
           </Link>
 
@@ -44,7 +44,7 @@ export default function Header() {
             onMouseEnter={() => setProductOpen(true)}
             onMouseLeave={() => setProductOpen(false)}
           >
-            <button className="flex items-center space-x-1 hover:text-[#fec104]">
+            <button className="flex items-center space-x-1 hover:text-blue-400">
               <span>Послуги</span>
               <ChevronDown
                 size={16}
@@ -61,13 +61,13 @@ export default function Header() {
                   transition={{ duration: 0.2, ease: 'easeOut' }}
                   className="absolute top-full left-0 mt-2 w-48 bg-white border rounded-lg shadow-lg z-50 overflow-hidden"
                 >
-                  <Link href="/legal" className="block px-4 py-2 hover:bg-yellow-100">
+                  <Link href="/legal" className="block px-4 py-2 hover:bg-blue-100">
                     Юридичні послуги
                   </Link>
-                  <Link href="/legal" className="block px-4 py-2 hover:bg-yellow-100">
+                  <Link href="/legal" className="block px-4 py-2 hover:bg-blue-100">
                     Бухгалтерські послуги
                   </Link>
-                  <Link href="/legal" className="block px-4 py-2 hover:bg-yellow-100">
+                  <Link href="/legal" className="block px-4 py-2 hover:bg-blue-100">
                     Бізнес послуги
                   </Link>
                 </motion.div>
@@ -75,7 +75,9 @@ export default function Header() {
             </AnimatePresence>
           </div>
 
-          <Link href="#footer">Контакти</Link>
+          <Link href="#footer" className="hover:text-blue-400">
+            Контакти
+          </Link>
         </nav>
 
         {/* Правая кнопка — обратная связь */}
