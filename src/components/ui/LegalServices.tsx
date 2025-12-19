@@ -81,7 +81,7 @@ export default function LegalPage() {
 
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-0">
-          <h1 className="text-4xl md:text-7xl font-extrabold text-white leading-tight">
+          <h1 className="text-4xl md:text-6xl font-semibold text-white leading-tight">
             Юридичні послуги для бізнесу та приватних клієнтів
           </h1>
           <p className="text-xl md:text-2xl mt-16 text-gray-200 max-w-4xl">

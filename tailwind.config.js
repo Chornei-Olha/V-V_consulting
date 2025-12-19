@@ -47,7 +47,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        inter: ['Inter', 'sans-serif'],
+        main: ['var(--font-main)', 'serif'],
+        // inter: ['Inter', 'sans-serif'],
         unbounded: ['Unbounded', 'sans-serif'],
       },
 

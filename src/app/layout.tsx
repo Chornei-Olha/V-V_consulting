@@ -1,11 +1,11 @@
 import React from 'react';
 import '../styles/index.css';
-import { Quattrocento } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 
-const quattrocento = Quattrocento({
-  subsets: ['latin'],
-  weight: ['400', '700'], // обычный и жирный
-  display: 'swap',
+const montserrat = Montserrat({
+  subsets: ['latin', 'cyrillic'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-main',
 });
 
 export const viewport = {
@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ua">
-      <body className={quattrocento.className}>
+      <body className={montserrat.variable}>
         {children}
         <script
           type="module"
