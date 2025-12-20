@@ -118,7 +118,7 @@ export default function LegalPage() {
 
         {/* Поднапрямки - аккордеон */}
         <div className="mb-12">
-          <h2 className="text-2xl md:text-5xl font-semibold mb-6">Наші напрямки</h2>
+          <h2 className="text-3xl md:text-5xl font-semibold mb-20 text-center">Наші напрямки</h2>
           <div className="space-y-4 whitespace-pre-line">
             {directions.map((item, idx) => (
               <Disclosure as="div" key={idx} className="border rounded-lg">
@@ -142,7 +142,7 @@ export default function LegalPage() {
 
         {/* Як ми працюємо */}
         <div className="mb-12">
-          <h2 className="text-2xl md:text-5xl font-semibold mb-6">Як ми працюємо</h2>
+          <h2 className="text-3xl md:text-5xl font-semibold mb-20 text-center">Як ми працюємо</h2>
           <ol className="list-decimal list-inside space-y-2 text-gray-600">
             <li>Аналіз потреб клієнта та визначення задач</li>
             <li>Розробка стратегії та плану дій</li>

@@ -22,7 +22,7 @@ export default function HowWeWork() {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[#2E334E]">Як ми працюємо</h2>
+          <h2 className="text-3xl md:text-5xl font-semibold mb-20 text-center">Як ми працюємо</h2>
           <p className="mt-4 text-gray-600 max-w-3xl mx-auto">
             Чіткий процес без хаосу. Ви розумієте кожен етап роботи та очікуваний результат.
           </p>
