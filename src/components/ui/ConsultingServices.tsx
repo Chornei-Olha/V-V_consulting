@@ -2,14 +2,14 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, cubicBezier } from 'framer-motion';
 import { TrendingUp, Settings, Wallet, Target, Shield, GraduationCap } from 'lucide-react';
 
 /* ================= ANIMATION PRESETS ================= */
 
 const transition = {
   duration: 0.8,
-  ease: [0.22, 1, 0.36, 1], // premium easing
+  ease: cubicBezier(0.22, 1, 0.36, 1),
 };
 
 const fadeUp = {
@@ -84,7 +84,7 @@ export default function ConsultingPage() {
   return (
     <>
       {/* ================= HERO ================= */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+      <section className="relative w-full min-h-screen flex items-center overflow-hidden py-8">
         <Image
           src="/images/bg1.webp"
           alt="Business consulting"
@@ -94,40 +94,30 @@ export default function ConsultingPage() {
         />
 
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent" />
-
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={stagger}
-          className="relative max-w-7xl mx-auto px-6 pt-28 md:pt-36"
-        >
-          <motion.h1
-            variants={fadeUp}
-            className="text-4xl md:text-6xl font-semibold text-white leading-tight max-w-4xl"
-          >
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-0">
+          <h1 className="text-4xl md:text-6xl font-semibold text-white leading-tight">
             Преміальний бізнес-консалтинг для зростання та масштабування
-          </motion.h1>
-
-          <motion.p variants={fadeUp} className="text-lg md:text-2xl mt-10 text-gray-200 max-w-3xl">
+          </h1>
+          <p className="text-xl md:text-2xl mt-10 text-gray-200 max-w-3xl">
             Стратегія, фінанси та управління — комплексні рішення для стабільного розвитку бізнесу.
-          </motion.p>
-
-          <motion.div variants={fadeUp} className="mt-16 flex flex-col sm:flex-row gap-4">
+          </p>
+          <div className="mt-16 flex flex-col sm:flex-row gap-4">
             <a
               href="#contact"
-              className="bg-blue-400 text-white px-6 py-3 rounded-full border border-white/20 font-medium hover:bg-white/10 transition shadow-lg text-center"
+              className="inline-block bg-blue-400 text-white px-6 py-3 rounded-full border border-white/20 font-medium hover:bg-white/5 hover:text-white transition text-center 
+             shadow-lg animate-pulse-slow"
             >
               Отримати консультацію
             </a>
 
             <Link
-              href="#services"
-              className="text-white/90 px-6 py-3 rounded-full border border-white/20 hover:bg-white/10 transition text-center"
+              href="/#services"
+              className="inline-block text-white/90 px-6 py-3 rounded-full border border-white/20 hover:bg-white/5 transition text-center"
             >
               Наші послуги
             </Link>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </section>
 
       {/* ================= SERVICES ================= */}

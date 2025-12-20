@@ -1,6 +1,35 @@
 'use client';
 
+import Image from 'next/image';
+import Link from 'next/link';
+import { motion, cubicBezier } from 'framer-motion';
 import { Calculator, FileText, Search, Briefcase } from 'lucide-react';
+
+/* ================= ANIMATION PRESETS ================= */
+
+const transition = {
+  duration: 0.8,
+  ease: cubicBezier(0.22, 1, 0.36, 1),
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 28 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition,
+  },
+};
+
+const stagger = {
+  visible: {
+    transition: {
+      staggerChildren: 0.22,
+    },
+  },
+};
+
+/* ================= DATA ================= */
 
 const blocks = [
   {
@@ -61,58 +90,105 @@ const blocks = [
   },
 ];
 
+/* ================= COMPONENT ================= */
+
 export default function FinancePage() {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-28">
-      {/* ===== TITLE ===== */}
-      <div className="text-center mb-24">
-        <h2 className="text-3xl md:text-5xl font-semibold mb-6">
-          Бухгалтерський та фінансовий консалтинг
-        </h2>
-        <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-          Стратегічний та операційний фінансовий супровід бізнесу — від бухгалтерського обліку до
-          управління фінансовими рішеннями.
-        </p>
-      </div>
+    <>
+      {/* ================= HERO ================= */}
+      <section className="relative w-full min-h-screen flex items-center overflow-hidden py-8">
+        <Image
+          src="/images/bg1.webp"
+          alt="Financial consulting"
+          fill
+          priority
+          className="object-cover"
+        />
 
-      {/* ===== BLOCKS ===== */}
-      <div className="grid gap-10 sm:grid-cols-2">
-        {blocks.map((block, idx) => {
-          const Icon = block.icon;
-          return (
-            <div
-              key={idx}
-              className="
-                relative rounded-2xl p-8
-                bg-gradient-to-br from-white/10 via-white/5 to-transparent
-                border border-white/15
-                backdrop-blur-xl
-                hover:border-blue-400/40
-                transition
-              "
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent" />
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-0">
+          <h1 className="text-4xl md:text-6xl font-semibold text-white leading-tight">
+            Бухгалтерський та фінансовий консалтинг
+          </h1>
+          <p className="text-xl md:text-2xl mt-10 text-gray-200 max-w-3xl">
+            Комплексний фінансовий супровід бізнесу — від бухгалтерії до стратегічного управління
+            фінансами.{' '}
+          </p>
+          <div className="mt-16 flex flex-col sm:flex-row gap-4">
+            <a
+              href="#contact"
+              className="inline-block bg-blue-400 text-white px-6 py-3 rounded-full border border-white/20 font-medium hover:bg-white/5 hover:text-white transition text-center 
+             shadow-lg animate-pulse-slow"
             >
-              {/* subtle accent */}
-              <div className="absolute inset-0 rounded-2xl bg-blue-400/5 pointer-events-none" />
+              Отримати консультацію
+            </a>
 
-              <div className="relative">
-                <div className="flex items-center gap-4 mb-6">
-                  <Icon className="w-9 h-9 text-blue-400" />
-                  <h3 className="text-xl md:text-2xl font-semibold">{block.title}</h3>
+            <Link
+              href="/#services"
+              className="inline-block text-white/90 px-6 py-3 rounded-full border border-white/20 hover:bg-white/5 transition text-center"
+            >
+              Наші послуги
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ================= SERVICES ================= */}
+      <section id="services" className="max-w-7xl mx-auto px-6 py-28">
+        <motion.h2
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-80px' }}
+          variants={fadeUp}
+          className="text-3xl md:text-5xl font-semibold mb-20 text-center"
+        >
+          Напрямки фінансового консалтингу
+        </motion.h2>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-80px' }}
+          variants={stagger}
+          className="grid gap-10 sm:grid-cols-2"
+        >
+          {blocks.map((block, idx) => {
+            const Icon = block.icon;
+            return (
+              <motion.div
+                key={idx}
+                variants={fadeUp}
+                className="
+                  relative rounded-2xl p-8
+                  bg-gradient-to-br from-white/10 via-white/5 to-transparent
+                  border border-white/15
+                  backdrop-blur-xl
+                  transition-all
+                  hover:border-blue-400/40
+                "
+              >
+                <div className="absolute inset-0 rounded-2xl bg-blue-400/5 pointer-events-none" />
+
+                <div className="relative">
+                  <div className="flex items-center gap-4 mb-6">
+                    <Icon className="w-9 h-9 text-blue-400" />
+                    <h3 className="text-xl md:text-2xl font-semibold">{block.title}</h3>
+                  </div>
+
+                  <ul className="space-y-3 text-gray-600">
+                    {block.items.map((item, i) => (
+                      <li key={i} className="flex gap-3">
+                        <span className="text-blue-400">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-
-                <ul className="space-y-3 text-gray-600">
-                  {block.items.map((item, i) => (
-                    <li key={i} className="flex gap-3">
-                      <span className="text-blue-400">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </section>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+      </section>
+    </>
   );
 }
