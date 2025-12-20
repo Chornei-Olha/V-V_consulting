@@ -1,13 +1,14 @@
 'use client';
 import Header from '../../components/ui/Header';
-import LegalServices from '../../components/ui/LegalServices';
+import FinancePage from '../../components/ui/FinanceServices';
+
 import Footer from '../../components/ui/Footer';
 
 const Products: React.FC = () => {
   return (
     <>
       <Header />
-      <LegalServices />
+      <FinancePage />
       <Footer />
     </>
   );

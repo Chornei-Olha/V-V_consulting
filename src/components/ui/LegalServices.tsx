@@ -70,7 +70,7 @@ const directions = [
 export default function LegalPage() {
   return (
     <>
-      <div className="relative w-full h-[600px] flex items-center overflow-hidden">
+      <div className="relative w-full min-h-screen flex items-center overflow-hidden py-8">
         <Image
           src="/images/bg1.webp"
           alt="Legal and business consulting"
@@ -80,14 +80,14 @@ export default function LegalPage() {
         />
 
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
-        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-0">
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-0">
           <h1 className="text-4xl md:text-6xl font-semibold text-white leading-tight">
             Юридичні послуги для бізнесу та приватних клієнтів
           </h1>
-          <p className="text-xl md:text-2xl mt-16 text-gray-200 max-w-4xl">
+          <p className="text-xl md:text-2xl mt-10 text-gray-200 max-w-3xl">
             Консультування, захист, супровід. Ми — ваш надійний партнер у правовій сфері.
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4">
+          <div className="mt-16 flex flex-col sm:flex-row gap-4">
             <a
               href="#contact"
               className="inline-block bg-blue-400 text-white px-6 py-3 rounded-full border border-white/20 font-medium hover:bg-white/5 hover:text-white transition text-center 
@@ -109,8 +109,8 @@ export default function LegalPage() {
       <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Коротке описання */}
         <div className="mb-12">
-          <h1 className="text-3xl font-bold mb-4">Юридичні та фінансові послуги</h1>
-          <p className="text-gray-700">
+          {/* <h1 className="text-3xl sm:text-4xl font-bold mb-4">Юридичні та фінансові послуги</h1> */}
+          <p className="text-gray-600">
             Ми надаємо комплексний супровід для бізнесу: юридичний, фінансовий та консалтинговий.
             Наші експерти допомагають мінімізувати ризики та оптимізувати процеси.
           </p>
@@ -118,7 +118,7 @@ export default function LegalPage() {
 
         {/* Поднапрямки - аккордеон */}
         <div className="mb-12">
-          <h2 className="text-2xl font-semibold mb-6">Наші напрямки</h2>
+          <h2 className="text-2xl md:text-5xl font-semibold mb-6">Наші напрямки</h2>
           <div className="space-y-4 whitespace-pre-line">
             {directions.map((item, idx) => (
               <Disclosure as="div" key={idx} className="border rounded-lg">
@@ -127,10 +127,10 @@ export default function LegalPage() {
                     <Disclosure.Button className="flex justify-between w-full px-4 py-2 text-left bg-gray-100 rounded-lg hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500">
                       <span className="font-medium">{item.title}</span>
                       <ChevronUpIcon
-                        className={`${open ? 'rotate-180 transform' : ''} w-5 h-5 text-purple-500`}
+                        className={`${open ? 'rotate-180 transform' : ''} w-5 h-5 text-blue-400`}
                       />
                     </Disclosure.Button>
-                    <Disclosure.Panel className="px-4 pt-4 pb-2 text-gray-700">
+                    <Disclosure.Panel className="px-4 pt-4 pb-2 text-gray-600">
                       {item.content}
                     </Disclosure.Panel>
                   </>
@@ -142,8 +142,8 @@ export default function LegalPage() {
 
         {/* Як ми працюємо */}
         <div className="mb-12">
-          <h2 className="text-2xl font-semibold mb-6 text-[#2E334E]">Як ми працюємо</h2>
-          <ol className="list-decimal list-inside space-y-2 text-gray-700">
+          <h2 className="text-2xl md:text-5xl font-semibold mb-6">Як ми працюємо</h2>
+          <ol className="list-decimal list-inside space-y-2 text-gray-600">
             <li>Аналіз потреб клієнта та визначення задач</li>
             <li>Розробка стратегії та плану дій</li>
             <li>Виконання робіт та супровід</li>

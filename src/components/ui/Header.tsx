@@ -24,7 +24,7 @@ export default function Header() {
             <Image
               src="/images/logo.webp"
               alt="Logo"
-              width={70}
+              width={60}
               height={30}
               priority
               className="cursor-pointer ml-6 sm:ml-0"
@@ -64,10 +64,10 @@ export default function Header() {
                   <Link href="/legal" className="block px-4 py-2 hover:bg-blue-100">
                     Юридичні послуги
                   </Link>
-                  <Link href="/legal" className="block px-4 py-2 hover:bg-blue-100">
+                  <Link href="/finance" className="block px-4 py-2 hover:bg-blue-100">
                     Бухгалтерські послуги
                   </Link>
-                  <Link href="/legal" className="block px-4 py-2 hover:bg-blue-100">
+                  <Link href="/consulting" className="block px-4 py-2 hover:bg-blue-100">
                     Бізнес послуги
                   </Link>
                 </motion.div>
@@ -126,10 +126,10 @@ export default function Header() {
                   <Link href="/legal" onClick={() => setIsOpen(false)}>
                     Юридичні послуги
                   </Link>
-                  <Link href="/legal" onClick={() => setIsOpen(false)}>
+                  <Link href="/finance" onClick={() => setIsOpen(false)}>
                     Бухгалтерські послуги
                   </Link>
-                  <Link href="/legal" onClick={() => setIsOpen(false)}>
+                  <Link href="/consulting" onClick={() => setIsOpen(false)}>
                     Бізнес послуги
                   </Link>
                 </div>

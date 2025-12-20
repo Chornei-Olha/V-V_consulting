@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function ContactSectionDark() {
   return (
-    <section id="footer" className="bg-gray-900 py-20 text-gray-100">
+    <section id="footer" className="bg-gray-900 py-10 text-gray-100">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid gap-12 md:grid-cols-3 items-stretch">
           {/* LEFT — LOGO */}
@@ -20,7 +20,7 @@ export default function ContactSectionDark() {
               <img
                 src="/images/logo_black.webp"
                 alt="V&V consulting"
-                className="h-[120px] sm:h-[180px] w-auto opacity-90 hover:opacity-100 transition"
+                className="h-[100px] sm:h-[180px] w-auto opacity-90 hover:opacity-100 transition"
               />
             </Link>
           </motion.div>

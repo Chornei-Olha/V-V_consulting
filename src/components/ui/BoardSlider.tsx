@@ -162,7 +162,7 @@ export default function BoardSlider() {
                 </p>
                 <div className="mt-[20px] flex justify-center">
                   <button
-                    className="max-w-[180px] px-[40px] py-[10px] font-bold font-inter text-[16px] bg-black text-white rounded-3xl cursor-pointer"
+                    className="max-w-[200px] px-[40px] py-[10px] font-bold font-inter text-[16px] bg-black text-white rounded-3xl cursor-pointer"
                     onClick={() => {
                       console.log('Click!', member);
                       setSelectedMember(member);

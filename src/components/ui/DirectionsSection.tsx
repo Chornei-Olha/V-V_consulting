@@ -26,7 +26,7 @@ const directions = [
       'Фінансовий директор',
     ],
     accent: 'from-emerald-600 to-emerald-800',
-    link: '/legal-services',
+    link: '/finance',
   },
   {
     title: 'Бізнес послуги',
@@ -41,7 +41,7 @@ const directions = [
       'Консультації з питань правового регулювання',
     ],
     accent: 'from-amber-500 to-amber-700',
-    link: '/legal-services',
+    link: '/consulting',
   },
 ];
 
