@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function ContactSectionDark() {
   return (
@@ -44,23 +45,23 @@ export default function ContactSectionDark() {
               <div>
                 <p className="text-sm text-gray-400">Телефон</p>
                 <a
-                  href="tel:+380123456789"
+                  href="tel:+380970144014"
                   className="text-lg font-medium text-blue-400 hover:underline"
                 >
-                  +380 (12) 345-67-89
+                  +38 (097) 01 44 014
                 </a>
               </div>
 
               <div>
                 <p className="text-sm text-gray-400">Email</p>
                 <a
-                  href="mailto:info@miysait.com"
+                  href="mailto:thevvvgroup@gmail.com"
                   className="text-lg font-medium text-blue-400 hover:underline"
                 >
-                  info@miysait.com
+                  thevvvgroup@gmail.com
                 </a>
               </div>
-
+              {/* 
               <div>
                 <p className="text-sm text-gray-400 mb-2">Месенджери</p>
                 <div className="flex gap-3">
@@ -73,7 +74,7 @@ export default function ContactSectionDark() {
                     </span>
                   ))}
                 </div>
-              </div>
+              </div> */}
             </div>
           </motion.div>
 
@@ -120,6 +121,27 @@ export default function ContactSectionDark() {
             </div>
           </motion.div>
         </div>
+      </div>
+      <div
+        className="fixed bottom-5 right-5 z-50 w-16 sm:w-20 lg:w-[98px] h-16 sm:h-20 lg:h-[98px] 
+             rounded-full bg-white/10 backdrop-blur-sm
+             shadow-[0_0_20px_5px_rgba(59,130,246,0.7)]
+             flex items-center justify-center"
+      >
+        <a href="tel:+380970144014">
+          <div
+            className="w-full h-full flex items-center justify-center cursor-pointer rounded-full
+                 transition-transform active:scale-95"
+          >
+            <Image
+              src="/images/img_phone_call_2_svg.svg"
+              alt="Phone Call"
+              width={60}
+              height={60}
+              className="w-12 sm:w-14 lg:w-[60px] h-12 sm:h-14 lg:h-[60px] animate-wiggle"
+            />
+          </div>
+        </a>
       </div>
     </section>
   );
