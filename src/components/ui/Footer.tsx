@@ -3,8 +3,31 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 export default function ContactSectionDark() {
+  const formRef = useRef<HTMLFormElement | null>(null);
+
+  const sendEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formRef.current) return;
+
+    emailjs
+      .sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        formRef.current,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      )
+      .then(() => {
+        formRef.current?.reset();
+      })
+      .catch((error) => {
+        console.error('EmailJS error:', error);
+      });
+  };
+
   return (
     <section id="footer" className="bg-gray-900 py-10 text-gray-100">
       <div className="max-w-7xl mx-auto px-6">
@@ -61,20 +84,6 @@ export default function ContactSectionDark() {
                   thevvvgroup@gmail.com
                 </a>
               </div>
-              {/* 
-              <div>
-                <p className="text-sm text-gray-400 mb-2">Месенджери</p>
-                <div className="flex gap-3">
-                  {['F', 'I', 'X', 'T'].map((m) => (
-                    <span
-                      key={m}
-                      className="w-10 h-10 rounded-full bg-blue-400 text-gray-900 flex items-center justify-center font-bold"
-                    >
-                      {m}
-                    </span>
-                  ))}
-                </div>
-              </div> */}
             </div>
           </motion.div>
 
@@ -87,20 +96,23 @@ export default function ContactSectionDark() {
             className="order-2 md:order-3 h-full"
           >
             <div className="bg-gray-800 rounded-2xl shadow-lg p-8 h-full flex flex-col justify-between">
-              <form className="space-y-4">
+              <form ref={formRef} onSubmit={sendEmail} className="space-y-4">
                 <input
                   type="text"
+                  name="name"
                   placeholder="Ваше імʼя"
                   required
                   className="w-full border border-gray-600 rounded-lg px-4 py-3 bg-gray-900 text-gray-100 focus:ring-2 focus:ring-blue-400 outline-none"
                 />
                 <input
                   type="email"
+                  name="email"
                   placeholder="Email"
                   required
                   className="w-full border border-gray-600 rounded-lg px-4 py-3 bg-gray-900 text-gray-100 focus:ring-2 focus:ring-blue-400 outline-none"
                 />
                 <textarea
+                  name="message"
                   placeholder="Опишіть вашу ситуацію"
                   rows={6}
                   required
@@ -122,17 +134,16 @@ export default function ContactSectionDark() {
           </motion.div>
         </div>
       </div>
+
+      {/* FLOAT PHONE BUTTON */}
       <div
-        className="fixed bottom-5 right-5 z-50 w-16 sm:w-20 lg:w-[98px] h-16 sm:h-20 lg:h-[98px] 
-             rounded-full bg-white/10 backdrop-blur-sm
-             shadow-[0_0_20px_5px_rgba(59,130,246,0.7)]
-             flex items-center justify-center"
+        className="fixed bottom-5 right-5 z-50 w-16 sm:w-20 lg:w-[98px] h-16 sm:h-20 lg:h-[98px]
+        rounded-full bg-white/10 backdrop-blur-sm
+        shadow-[0_0_20px_5px_rgba(59,130,246,0.7)]
+        flex items-center justify-center"
       >
         <a href="tel:+380970144014">
-          <div
-            className="w-full h-full flex items-center justify-center cursor-pointer rounded-full
-                 transition-transform active:scale-95"
-          >
+          <div className="w-full h-full flex items-center justify-center cursor-pointer rounded-full transition-transform active:scale-95">
             <Image
               src="/images/img_phone_call_2_svg.svg"
               alt="Phone Call"
