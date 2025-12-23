@@ -12,7 +12,7 @@ const boardMembers = [
   {
     id: 1,
     photo: '/images/team-1.webp',
-    name: 'ВІКТОРІЯ СЕНІК',
+    name: 'ВІКТОРІЯ СЕНИК',
     position: 'Бухгалтер',
     // badge: "Правління",
     description: `Маю 22-річний досвід в індустрії.\n
