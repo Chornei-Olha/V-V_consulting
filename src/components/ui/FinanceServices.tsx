@@ -110,11 +110,11 @@ export default function FinancePage() {
         />
 
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent" />
-        <div className="relative max-w-7xl mx-auto px-6 sm:px-0">
-          <h1 className="text-3xl md:text-6xl font-semibold text-white leading-tight">
+        <div className="relative max-w-6xl mx-auto px-6 sm:px-0">
+          <h1 className="text-3xl md:text-5xl font-semibold text-white leading-tight">
             Бухгалтерський та фінансовий консалтинг
           </h1>
-          <p className="text-lg md:text-2xl mt-10 text-gray-200 max-w-3xl">
+          <p className="text-lg md:text-xl mt-10 text-gray-200 max-w-3xl">
             Комплексний фінансовий супровід бізнесу — від бухгалтерії до стратегічного управління
             фінансами.{' '}
           </p>
@@ -144,7 +144,7 @@ export default function FinancePage() {
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
           variants={fadeUp}
-          className="text-3xl md:text-5xl font-semibold mb-20 text-center"
+          className="text-3xl md:text-4xl font-semibold mb-20 text-center"
         >
           Напрямки фінансового консалтингу
         </motion.h2>

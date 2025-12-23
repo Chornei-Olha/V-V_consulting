@@ -47,7 +47,7 @@ const directions = [
 
 export default function DirectionsSection() {
   return (
-    <section id="services" className="py-20 bg-gray-50">
+    <section id="services" className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -57,7 +57,7 @@ export default function DirectionsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <h2 className="text-3xl md:text-5xl font-semibold mb-10 text-center">Наші напрямки</h2>
+          <h2 className="text-3xl md:text-4xl font-semibold mb-10 text-center">Наші напрямки</h2>
           <p className="mt-4 text-gray-600 max-w-3xl mx-auto">
             Ми працюємо не з окремими задачами, а з комплексними напрямами, які формують
             стабільність та зростання бізнесу.

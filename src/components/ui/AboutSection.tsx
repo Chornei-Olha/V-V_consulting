@@ -32,7 +32,7 @@ export default function WhoWeHelp() {
       <div className="max-w-6xl mx-auto px-6">
         {/* Heading */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-semibold mb-10 text-center">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-10 text-center">
             Кому ми допомагаємо
           </h2>
           <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">

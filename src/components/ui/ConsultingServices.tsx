@@ -98,11 +98,11 @@ export default function ConsultingPage() {
         />
 
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent" />
-        <div className="relative max-w-7xl mx-auto px-6 sm:px-0">
-          <h1 className="text-3xl md:text-6xl font-semibold text-white leading-tight">
+        <div className="relative max-w-6xl mx-auto px-6 sm:px-0">
+          <h1 className="text-3xl md:text-5xl font-semibold text-white leading-tight">
             Преміальний бізнес-консалтинг для зростання та масштабування
           </h1>
-          <p className="text-lg md:text-2xl mt-10 text-gray-200 max-w-3xl">
+          <p className="text-lg md:text-xl mt-10 text-gray-200 max-w-3xl">
             Стратегія, фінанси та управління — комплексні рішення для стабільного розвитку бізнесу.
           </p>
           <div className="mt-16 flex flex-col sm:flex-row gap-4">
@@ -131,7 +131,7 @@ export default function ConsultingPage() {
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
           variants={fadeUp}
-          className="text-3xl md:text-5xl font-semibold mb-20 text-center"
+          className="text-3xl md:text-4xl font-semibold mb-20 text-center"
         >
           Напрямки бізнес-консалтингу
         </motion.h2>
@@ -187,7 +187,7 @@ border border-white/10
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
             variants={fadeUp}
-            className="text-3xl md:text-5xl font-semibold mb-16 text-center"
+            className="text-3xl md:text-4xl font-semibold mb-16 text-center"
           >
             Як ми працюємо
           </motion.h2>

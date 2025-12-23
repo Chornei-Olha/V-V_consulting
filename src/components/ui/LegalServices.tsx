@@ -83,11 +83,11 @@ export default function LegalPage() {
         />
 
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
-        <div className="relative max-w-7xl mx-auto px-6 sm:px-0">
-          <h1 className="text-3xl md:text-6xl font-semibold text-white leading-tight">
+        <div className="relative max-w-6xl mx-auto px-6 sm:px-0">
+          <h1 className="text-3xl md:text-5xl font-semibold text-white leading-tight">
             Юридичні послуги для бізнесу та приватних клієнтів
           </h1>
-          <p className="text-lg md:text-2xl mt-10 text-gray-200 max-w-3xl">
+          <p className="text-lg md:text-xl mt-10 text-gray-200 max-w-3xl">
             Консультування, захист, супровід. Ми — ваш надійний партнер у правовій сфері.
           </p>
           <div className="mt-16 flex flex-col sm:flex-row gap-4">
@@ -121,7 +121,7 @@ export default function LegalPage() {
 
         {/* Поднапрямки - аккордеон */}
         <div className="mb-12">
-          <h2 className="text-3xl md:text-5xl font-semibold mb-20 text-center">Наші напрямки</h2>
+          <h2 className="text-3xl md:text-4xl font-semibold mb-16 text-center">Наші напрямки</h2>
           <div className="space-y-4 whitespace-pre-line">
             {directions.map((item, idx) => (
               <Disclosure as="div" key={idx} className="border rounded-lg">
