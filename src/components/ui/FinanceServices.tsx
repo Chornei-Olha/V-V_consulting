@@ -4,6 +4,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion, cubicBezier } from 'framer-motion';
 import { Calculator, FileText, Search, Briefcase } from 'lucide-react';
+import { useState } from 'react';
+import PopupForm from '@/components/ui/PopupForm';
 
 /* ================= ANIMATION PRESETS ================= */
 
@@ -93,10 +95,12 @@ const blocks = [
 /* ================= COMPONENT ================= */
 
 export default function FinancePage() {
+  const [open, setOpen] = useState(false);
+
   return (
     <>
       {/* ================= HERO ================= */}
-      <section className="relative w-full min-h-screen flex items-center overflow-hidden py-8">
+      <section className="relative w-full min-h-[600px] flex items-center overflow-hidden py-8">
         <Image
           src="/images/bg1.webp"
           alt="Financial consulting"
@@ -107,16 +111,16 @@ export default function FinancePage() {
 
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent" />
         <div className="relative max-w-7xl mx-auto px-6 sm:px-0">
-          <h1 className="text-4xl md:text-6xl font-semibold text-white leading-tight">
+          <h1 className="text-3xl md:text-6xl font-semibold text-white leading-tight">
             Бухгалтерський та фінансовий консалтинг
           </h1>
-          <p className="text-xl md:text-2xl mt-10 text-gray-200 max-w-3xl">
+          <p className="text-lg md:text-2xl mt-10 text-gray-200 max-w-3xl">
             Комплексний фінансовий супровід бізнесу — від бухгалтерії до стратегічного управління
             фінансами.{' '}
           </p>
           <div className="mt-16 flex flex-col sm:flex-row gap-4">
             <a
-              href="#contact"
+              onClick={() => setOpen(true)}
               className="inline-block bg-blue-400 text-white px-6 py-3 rounded-full border border-white/20 font-medium hover:bg-white/5 hover:text-white transition text-center 
              shadow-lg animate-pulse-slow"
             >
@@ -134,7 +138,7 @@ export default function FinancePage() {
       </section>
 
       {/* ================= SERVICES ================= */}
-      <section id="services" className="max-w-7xl mx-auto px-6 py-28">
+      <section id="services" className="max-w-7xl mx-auto px-6 py-16">
         <motion.h2
           initial="hidden"
           whileInView="visible"
@@ -167,7 +171,7 @@ export default function FinancePage() {
                   hover:border-blue-400/40
                 "
               >
-                <div className="absolute inset-0 rounded-2xl bg-blue-400/5 pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl bg-blue-700/5 pointer-events-none" />
 
                 <div className="relative">
                   <div className="flex items-center gap-4 mb-6">
@@ -188,6 +192,8 @@ export default function FinancePage() {
             );
           })}
         </motion.div>
+        {/* POPUP */}
+        <PopupForm isOpen={open} onClose={() => setOpen(false)} />
       </section>
     </>
   );

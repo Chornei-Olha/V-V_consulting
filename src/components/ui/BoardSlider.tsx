@@ -50,7 +50,7 @@ export default function BoardSlider() {
 
   return (
     <div id="slider1" className="w-full text-center relative py-12">
-      <h2 className="text-3xl md:text-5xl font-semibold mb-20 text-center">Про нас</h2>
+      <h2 className="text-3xl md:text-5xl font-semibold mb-10 text-center">Про нас</h2>
 
       <div className="relative max-w-7xl mx-auto">
         {/* Стрелки (десктоп) */}
@@ -162,13 +162,16 @@ export default function BoardSlider() {
                 </p>
                 <div className="mt-[20px] flex justify-center">
                   <button
-                    className="max-w-[200px] px-[40px] py-[10px] font-bold font-inter text-[16px] bg-black text-white rounded-3xl cursor-pointer"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-white px-5 py-2.5 rounded-full
+                    bg-gradient-to-r from-gray-900 to-gray-700
+                    hover:from-gray-800 hover:to-gray-600 transition"
                     onClick={() => {
                       console.log('Click!', member);
                       setSelectedMember(member);
                     }}
                   >
-                    Читати далі
+                    Детальніше
+                    <span className="transition group-hover:translate-x-1">→</span>
                   </button>
                 </div>
               </div>

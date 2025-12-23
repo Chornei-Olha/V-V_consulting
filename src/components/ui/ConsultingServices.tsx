@@ -4,6 +4,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion, cubicBezier } from 'framer-motion';
 import { TrendingUp, Settings, Wallet, Target, Shield, GraduationCap } from 'lucide-react';
+import { useState } from 'react';
+import PopupForm from '@/components/ui/PopupForm';
 
 /* ================= ANIMATION PRESETS ================= */
 
@@ -81,10 +83,12 @@ const serviceBlocks = [
 /* ================= COMPONENT ================= */
 
 export default function ConsultingPage() {
+  const [open, setOpen] = useState(false);
+
   return (
     <>
       {/* ================= HERO ================= */}
-      <section className="relative w-full min-h-screen flex items-center overflow-hidden py-8">
+      <section className="relative w-full min-h-[600px] flex items-center overflow-hidden py-8">
         <Image
           src="/images/bg1.webp"
           alt="Business consulting"
@@ -95,15 +99,15 @@ export default function ConsultingPage() {
 
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent" />
         <div className="relative max-w-7xl mx-auto px-6 sm:px-0">
-          <h1 className="text-4xl md:text-6xl font-semibold text-white leading-tight">
+          <h1 className="text-3xl md:text-6xl font-semibold text-white leading-tight">
             Преміальний бізнес-консалтинг для зростання та масштабування
           </h1>
-          <p className="text-xl md:text-2xl mt-10 text-gray-200 max-w-3xl">
+          <p className="text-lg md:text-2xl mt-10 text-gray-200 max-w-3xl">
             Стратегія, фінанси та управління — комплексні рішення для стабільного розвитку бізнесу.
           </p>
           <div className="mt-16 flex flex-col sm:flex-row gap-4">
             <a
-              href="#contact"
+              onClick={() => setOpen(true)}
               className="inline-block bg-blue-400 text-white px-6 py-3 rounded-full border border-white/20 font-medium hover:bg-white/5 hover:text-white transition text-center 
              shadow-lg animate-pulse-slow"
             >
@@ -121,7 +125,7 @@ export default function ConsultingPage() {
       </section>
 
       {/* ================= SERVICES ================= */}
-      <section id="services" className="max-w-7xl mx-auto px-6 py-28">
+      <section id="services" className="max-w-7xl mx-auto px-6 py-16">
         <motion.h2
           initial="hidden"
           whileInView="visible"
@@ -137,7 +141,7 @@ export default function ConsultingPage() {
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
           variants={stagger}
-          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 "
         >
           {serviceBlocks.map((block, idx) => {
             const Icon = block.icon;
@@ -147,12 +151,13 @@ export default function ConsultingPage() {
                 variants={fadeUp}
                 className="
                   rounded-2xl
-                  bg-white/5
-                  border border-white/10
+bg-blue-700/5
+border border-white/10
                   p-7
                   backdrop-blur-xl
                   transition-all
                   hover:border-blue-400/40
+                  
                 "
               >
                 <div className="flex items-center gap-4 mb-6">
@@ -175,7 +180,7 @@ export default function ConsultingPage() {
       </section>
 
       {/* ================= HOW WE WORK ================= */}
-      <section className="bg-gray-50 py-28">
+      <section className="bg-gray-200 py-16">
         <div className="max-w-6xl mx-auto px-6">
           <motion.h2
             initial="hidden"
@@ -192,7 +197,7 @@ export default function ConsultingPage() {
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
             variants={stagger}
-            className="grid gap-8 md:grid-cols-4 text-gray-600"
+            className="grid gap-8 md:grid-cols-4 text-gray-600 "
           >
             {[
               'Аналіз бізнесу та задач',
@@ -211,6 +216,8 @@ export default function ConsultingPage() {
             ))}
           </motion.ol>
         </div>
+        {/* POPUP */}
+        <PopupForm isOpen={open} onClose={() => setOpen(false)} />
       </section>
     </>
   );

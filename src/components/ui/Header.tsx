@@ -1,13 +1,15 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
+import PopupForm from '@/components/ui/PopupForm';
 
 export default function Header() {
+  const [open, setOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [productOpen, setProductOpen] = useState(false);
   const [collabOpen, setCollabOpen] = useState(false);
@@ -83,8 +85,10 @@ export default function Header() {
         {/* Правая кнопка — обратная связь */}
         <div className="hidden md:flex items-center gap-4">
           <button
-            onClick={() => console.log('Открыть форму обратной связи')}
-            className="bg-[#2E334E] text-white px-6 py-3 rounded-full border border-white/20 font-medium hover:bg-white/5 hover:text-white transition"
+            onClick={() => setOpen(true)}
+            className="inline-flex items-center gap-2 text-sm font-medium text-white px-5 py-2.5 rounded-full
+                    bg-gradient-to-r from-gray-900 to-gray-700
+                    hover:from-gray-800 hover:to-gray-600 transition"
           >
             Зв’язатися з нами
           </button>
@@ -101,10 +105,10 @@ export default function Header() {
       {/* Мобильное меню */}
       {isOpen && (
         <nav className="md:hidden bg-white border-t h-screen">
-          <div className="flex flex-col space-y-4 items-center px-4 py-3">
+          <div className="flex flex-col space-y-8 items-center px-4 py-3">
             <Link
               href="/"
-              className="flex justify-center items-center w-full hover:text-[#fec104]"
+              className="flex justify-center items-center w-full"
               onClick={() => setIsOpen(false)}
             >
               Головна
@@ -122,7 +126,7 @@ export default function Header() {
                 />
               </button>
               {productOpen && (
-                <div className="flex flex-col pl-4 mt-3 space-y-3">
+                <div className="flex flex-col pl-4 mt-3 space-y-5">
                   <Link href="/legal" onClick={() => setIsOpen(false)}>
                     Юридичні послуги
                   </Link>
@@ -146,24 +150,36 @@ export default function Header() {
 
             {/* Кнопка обратной связи внизу (мобильная) */}
             <button
-              onClick={() => console.log('Открыть форму обратной связи')}
-              className="bg-[#2E334E] text-white px-6 py-3 rounded-full border border-white/20 font-medium hover:bg-white/5 hover:text-white transition"
+              onClick={() => setOpen(true)}
+              className="inline-flex items-center gap-2 text-sm font-medium text-white px-5 py-2.5 rounded-full
+                    bg-gradient-to-r from-gray-900 to-gray-700
+                    hover:from-gray-800 hover:to-gray-600 transition"
             >
               Зв’язатися з нами
             </button>
 
             {/* Соцсети */}
             <div className="mt-auto border-t pt-6 flex justify-center gap-6">
-              <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+              {/* <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
                 <Image src="/images/youtube.png" alt="Youtube" width={24} height={24} />
               </a>
               <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer">
                 <Image src="/images/instagram.png" alt="Instagram" width={24} height={24} />
-              </a>
+              </a> */}
+              <div>
+                <a
+                  href="tel:+380970144014"
+                  className="text-lg font-medium text-blue-400 hover:underline"
+                >
+                  +38 (097) 01 44 014
+                </a>
+              </div>
             </div>
           </div>
         </nav>
       )}
+      {/* POPUP */}
+      <PopupForm isOpen={open} onClose={() => setOpen(false)} />
     </header>
   );
 }

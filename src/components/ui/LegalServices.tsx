@@ -1,10 +1,11 @@
 'use client';
 
-import { useState } from 'react';
 import { Disclosure } from '@headlessui/react';
 import { ChevronUpIcon } from '@heroicons/react/20/solid';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
+import PopupForm from '@/components/ui/PopupForm';
 
 const directions = [
   {
@@ -68,9 +69,11 @@ const directions = [
 ];
 
 export default function LegalPage() {
+  const [open, setOpen] = useState(false);
+
   return (
     <>
-      <div className="relative w-full min-h-screen flex items-center overflow-hidden py-8">
+      <div className="relative w-full min-h-[600px] flex items-center overflow-hidden py-8">
         <Image
           src="/images/bg1.webp"
           alt="Legal and business consulting"
@@ -81,15 +84,15 @@ export default function LegalPage() {
 
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
         <div className="relative max-w-7xl mx-auto px-6 sm:px-0">
-          <h1 className="text-4xl md:text-6xl font-semibold text-white leading-tight">
+          <h1 className="text-3xl md:text-6xl font-semibold text-white leading-tight">
             Юридичні послуги для бізнесу та приватних клієнтів
           </h1>
-          <p className="text-xl md:text-2xl mt-10 text-gray-200 max-w-3xl">
+          <p className="text-lg md:text-2xl mt-10 text-gray-200 max-w-3xl">
             Консультування, захист, супровід. Ми — ваш надійний партнер у правовій сфері.
           </p>
           <div className="mt-16 flex flex-col sm:flex-row gap-4">
             <a
-              href="#contact"
+              onClick={() => setOpen(true)}
               className="inline-block bg-blue-400 text-white px-6 py-3 rounded-full border border-white/20 font-medium hover:bg-white/5 hover:text-white transition text-center 
              shadow-lg animate-pulse-slow"
             >
@@ -151,6 +154,8 @@ export default function LegalPage() {
           </ol>
         </div>
       </div>
+      {/* POPUP */}
+      <PopupForm isOpen={open} onClose={() => setOpen(false)} />
     </>
   );
 }
