@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperType } from 'swiper';
 import { Autoplay } from 'swiper/modules';
 import Image from 'next/image';
+import { useLockBodyScroll } from '@/hooks/useLockBodyScroll';
 
 import 'swiper/css';
 
@@ -49,7 +50,7 @@ export default function BoardSlider() {
   const swiperRef = useRef<SwiperType | null>(null);
   const [selectedMember, setSelectedMember] = useState<null | (typeof boardMembers)[0]>(null);
   const [slidesPerView, setSlidesPerView] = useState(1);
-
+  useLockBodyScroll(!!selectedMember);
   const showNavigation = boardMembers.length > slidesPerView;
 
   return (
@@ -204,14 +205,14 @@ export default function BoardSlider() {
 
       {selectedMember && (
         <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center px-4">
-          <div className="bg-white max-w-lg w-full rounded-xl shadow-lg p-6 relative">
+          <div className="bg-white max-w-lg w-full max-h-[80vh] overflow-y-auto rounded-xl shadow-lg p-6 relative">
+            {' '}
             <button
               onClick={() => setSelectedMember(null)}
               className="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-2xl"
             >
               ✕
             </button>
-
             <h3 className="text-xl font-bold mb-2">{selectedMember.name}</h3>
             <p className="text-md font-semibold text-[#09234B] mb-2">{selectedMember.position}</p>
             <p className="text-sm text-gray-700 whitespace-pre-line text-left">

@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperType } from 'swiper';
 import { Autoplay } from 'swiper/modules';
 import Image from 'next/image';
+import { useLockBodyScroll } from '@/hooks/useLockBodyScroll';
 
 import 'swiper/css';
 
@@ -23,10 +24,17 @@ const boardMembers = [
   },
   {
     id: 2,
-    photo: '/images/ava-1.jpg',
-    name: 'ЗАПРОШУЄМО В КОМАНДУ',
+    photo: '/images/PetroMikituk.webp',
+    name: 'Микитюк Петро',
     position: 'Експерт',
-    showButton: false,
+    showButton: true,
+    description: `практикуючий експерт з комерційної ефективності рітейлу, із досвідом трансформації комерційних моделей бізнесу. Спеціалізується на побудові системного ціноутворення, управлінні категоріями та розробці ефективних промо-стратегій, орієнтованих на зростання прибутковості.
+
+Ключова експертиза — баланс між оборотом і маржинальністю: від впровадження диференційованих цінових стратегій і управління ціновою чутливістю до оптимізації асортименту та ролей категорій. Має практичний досвід переходу від хаотичних знижок до структурованого промо-менеджменту з чіткими фінансовими цілями та контролем ефективності.
+
+Працює на стику аналітики та операційного управління: впроваджує інструменти контролю маржі, оцінки ефективності SKU, управління промо-міксом і комерційними KPI. Реалізує підходи, що дозволяють збільшувати прибуток без втрати клієнтського потоку та формувати стабільну комерційну модель у висококонкурентному середовищі.
+
+Фокус — практичні рішення, які масштабуються: від аудиту комерційної функції до впровадження системних змін у ціноутворенні, асортиментній політиці та промо, що дають вимірюваний фінансовий результат.`,
   },
   {
     id: 3,
@@ -40,7 +48,7 @@ const boardMembers = [
 export default function BoardSlide_2() {
   const swiperRef = useRef<SwiperType | null>(null);
   const [selectedMember, setSelectedMember] = useState<null | (typeof boardMembers)[0]>(null);
-
+  useLockBodyScroll(!!selectedMember);
   const [slidesPerView, setSlidesPerView] = useState(1);
   const showNavigation = boardMembers.length > slidesPerView;
 
@@ -201,18 +209,16 @@ export default function BoardSlide_2() {
       {/* Модалка */}
       {selectedMember && (
         <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center px-4">
-          <div className="bg-white max-w-lg w-full rounded-xl shadow-lg p-6 relative">
+          <div className="bg-white max-w-lg w-full max-h-[80vh] overflow-y-auto rounded-xl shadow-lg p-6 relative">
+            {' '}
             <button
               onClick={() => setSelectedMember(null)}
               className="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-2xl"
             >
               ✕
             </button>
-
             <h3 className="text-xl font-bold mb-2">{selectedMember.name}</h3>
-
             <p className="text-md font-semibold text-[#09234B] mb-2">{selectedMember.position}</p>
-
             <p className="text-sm text-gray-700 whitespace-pre-line text-left">
               {selectedMember.description}
             </p>
