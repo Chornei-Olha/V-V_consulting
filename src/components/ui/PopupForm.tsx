@@ -6,6 +6,7 @@ import emailjs from '@emailjs/browser';
 
 export default function PopupForm({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [showThankYou, setShowThankYou] = useState(false);
@@ -13,15 +14,20 @@ export default function PopupForm({ isOpen, onClose }: { isOpen: boolean; onClos
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (!/^\+380\d{9}$/.test(phone)) {
+      alert('Введіть коректний номер телефону');
+      return;
+    }
     try {
       await emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        { name, email, message },
+        { name, phone, email, message },
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       );
 
       setShowThankYou(true);
+      setPhone('');
       setName('');
       setEmail('');
       setMessage('');
@@ -78,6 +84,30 @@ export default function PopupForm({ isOpen, onClose }: { isOpen: boolean; onClos
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
+                className="w-full border rounded-full px-4 py-3 text-gray-800 placeholder-gray-500"
+              />
+
+              <input
+                type="tel"
+                placeholder="+380XXXXXXXXX"
+                value={phone}
+                onChange={(e) => {
+                  // оставляем только цифры
+                  let digits = e.target.value.replace(/\D/g, '');
+
+                  // если пользователь стер всё
+                  if (!digits.startsWith('380')) {
+                    digits = '380' + digits.replace(/^380/, '');
+                  }
+
+                  // максимум 12 цифр: 380 + 9 цифр
+                  digits = digits.slice(0, 12);
+
+                  setPhone('+' + digits);
+                }}
+                required
+                pattern="^\+380\d{9}$"
+                title="Введіть коректний номер телефону"
                 className="w-full border rounded-full px-4 py-3 text-gray-800 placeholder-gray-500"
               />
 

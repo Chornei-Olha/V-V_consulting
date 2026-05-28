@@ -1,105 +1,3 @@
-// 'use client';
-
-// import { motion } from 'framer-motion';
-// import { useRef } from 'react';
-// import emailjs from '@emailjs/browser';
-
-// export default function CDA() {
-//   const formRef = useRef<HTMLFormElement | null>(null);
-
-//   const sendEmail = (e: React.FormEvent) => {
-//     e.preventDefault();
-//     if (!formRef.current) return;
-
-//     emailjs
-//       .sendForm(
-//         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-//         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-//         formRef.current,
-//         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
-//       )
-//       .then(() => {
-//         formRef.current?.reset();
-//       })
-//       .catch((error) => {
-//         console.error('EmailJS error:', error);
-//       });
-//   };
-
-//   return (
-//     <section
-//       id="who-we-help"
-//       className="relative py-16 md:py-20 bg-[url('/images/cda_bg.webp')] bg-cover bg-center"
-//     >
-//       <div className="absolute inset-0 bg-black/50" />
-//       <div className="relative z-10 max-w-6xl mx-auto px-6">
-//         {/* GRID */}
-//         <div className="grid md:grid-cols-2 gap-10 items-center">
-//           {/* LEFT — TEXT */}
-//           <motion.div
-//             initial={{ opacity: 0, x: -30 }}
-//             whileInView={{ opacity: 1, x: 0 }}
-//             viewport={{ once: true }}
-//             transition={{ duration: 0.6 }}
-//           >
-//             <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-white">
-//               Потрібне рішення для вашого бізнесу?
-//             </h2>
-
-//             <p className="text-lg text-gray-200">
-//               Опишіть вашу ситуацію, і команда TriVista Consulting підготує професійну консультацію
-//               з урахуванням специфіки вашого бізнесу.
-//             </p>
-//           </motion.div>
-
-//           {/* RIGHT — FORM */}
-//           <motion.div
-//             initial={{ opacity: 0, x: 30 }}
-//             whileInView={{ opacity: 1, x: 0 }}
-//             viewport={{ once: true }}
-//             transition={{ duration: 0.6 }}
-//           >
-//             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 shadow-lg">
-//               <form ref={formRef} onSubmit={sendEmail} className="space-y-4">
-//                 <input
-//                   type="text"
-//                   name="name"
-//                   placeholder="Ваше імʼя"
-//                   required
-//                   className="w-full rounded-lg px-4 py-3 bg-white/90 text-gray-900 outline-none"
-//                 />
-
-//                 <input
-//                   type="email"
-//                   name="email"
-//                   placeholder="Email"
-//                   required
-//                   className="w-full rounded-lg px-4 py-3 bg-white/90 text-gray-900 outline-none"
-//                 />
-
-//                 <textarea
-//                   name="message"
-//                   placeholder="Опишіть вашу ситуацію"
-//                   rows={5}
-//                   required
-//                   className="w-full rounded-lg px-4 py-3 bg-white/90 text-gray-900 outline-none"
-//                 />
-
-//                 <button
-//                   type="submit"
-//                   className="w-full bg-blue-500 text-white py-3 rounded-lg font-medium hover:bg-blue-600 transition"
-//                 >
-//                   Отримати консультацію
-//                 </button>
-//               </form>
-//             </div>
-//           </motion.div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
 'use client';
 
 import { motion } from 'framer-motion';
@@ -108,12 +6,30 @@ import emailjs from '@emailjs/browser';
 
 export default function CDA() {
   const formRef = useRef<HTMLFormElement | null>(null);
+  const [phone, setPhone] = useState('+380');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let digits = e.target.value.replace(/\D/g, '');
+
+    if (!digits.startsWith('380')) {
+      digits = '380' + digits.replace(/^380/, '');
+    }
+
+    digits = digits.slice(0, 12);
+    setPhone('+' + digits);
+  };
+
   const sendEmail = async (e: React.FormEvent) => {
     e.preventDefault();
+
     if (!formRef.current || isSubmitting) return;
+
+    if (!/^\+380\d{9}$/.test(phone)) {
+      alert('Введіть коректний номер телефону у форматі +380XXXXXXXXX');
+      return;
+    }
 
     try {
       setIsSubmitting(true);
@@ -127,9 +43,11 @@ export default function CDA() {
       );
 
       formRef.current.reset();
+      setPhone('+380');
       setIsSuccess(true);
     } catch (error) {
       console.error('EmailJS error:', error);
+      alert('Помилка. Спробуйте ще раз.');
     } finally {
       setIsSubmitting(false);
     }
@@ -140,16 +58,13 @@ export default function CDA() {
       id="who-we-help"
       className="relative overflow-hidden py-20 md:py-28 bg-[url('/images/cda_bg.webp')] bg-cover bg-center"
     >
-      {/* dark premium overlay */}
       <div className="absolute inset-0 bg-slate-950/70" />
 
-      {/* soft glow accents */}
       <div className="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-blue-500/20 blur-3xl" />
       <div className="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-cyan-400/10 blur-3xl" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="grid items-center gap-10 md:grid-cols-2 md:gap-14 lg:gap-20">
-          {/* LEFT */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -208,7 +123,6 @@ export default function CDA() {
             </motion.div>
           </motion.div>
 
-          {/* RIGHT */}
           <motion.div
             initial={{ opacity: 0, y: 50, scale: 0.96, filter: 'blur(10px)' }}
             whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
@@ -227,35 +141,41 @@ export default function CDA() {
               </div>
 
               <form ref={formRef} onSubmit={sendEmail} className="space-y-4">
-                <div>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Ваше імʼя"
-                    required
-                    className="w-full rounded-xl border border-white/10 bg-white/90 px-4 py-3.5 text-gray-900 placeholder:text-gray-500 outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-400/20"
-                  />
-                </div>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Ваше імʼя"
+                  required
+                  className="w-full rounded-xl border border-white/10 bg-white/90 px-4 py-3.5 text-gray-900 placeholder:text-gray-500 outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-400/20"
+                />
 
-                <div>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    required
-                    className="w-full rounded-xl border border-white/10 bg-white/90 px-4 py-3.5 text-gray-900 placeholder:text-gray-500 outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-400/20"
-                  />
-                </div>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="+380XXXXXXXXX"
+                  value={phone}
+                  onChange={handlePhoneChange}
+                  required
+                  pattern="^\+380\d{9}$"
+                  title="Введіть коректний номер телефону у форматі +380XXXXXXXXX"
+                  className="w-full rounded-xl border border-white/10 bg-white/90 px-4 py-3.5 text-gray-900 placeholder:text-gray-500 outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-400/20"
+                />
 
-                <div>
-                  <textarea
-                    name="message"
-                    placeholder="Опишіть вашу ситуацію"
-                    rows={5}
-                    required
-                    className="w-full resize-none rounded-xl border border-white/10 bg-white/90 px-4 py-3.5 text-gray-900 placeholder:text-gray-500 outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-400/20"
-                  />
-                </div>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  required
+                  className="w-full rounded-xl border border-white/10 bg-white/90 px-4 py-3.5 text-gray-900 placeholder:text-gray-500 outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-400/20"
+                />
+
+                <textarea
+                  name="message"
+                  placeholder="Опишіть вашу ситуацію"
+                  rows={5}
+                  required
+                  className="w-full resize-none rounded-xl border border-white/10 bg-white/90 px-4 py-3.5 text-gray-900 placeholder:text-gray-500 outline-none transition focus:border-blue-400 focus:ring-4 focus:ring-blue-400/20"
+                />
 
                 <motion.button
                   whileHover={{ y: -2, scale: 1.01 }}
@@ -267,18 +187,11 @@ export default function CDA() {
                   {isSubmitting ? 'Надсилання...' : 'Отримати консультацію'}
                 </motion.button>
 
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={
-                    isSuccess
-                      ? { opacity: 1, height: 'auto', marginTop: 12 }
-                      : { opacity: 0, height: 0, marginTop: 0 }
-                  }
-                  transition={{ duration: 0.35 }}
-                  className="overflow-hidden rounded-xl border border-emerald-400/20 bg-emerald-400/10 px-4 py-3 text-sm text-emerald-200"
-                >
-                  Дякуємо. Ваш запит успішно надіслано.
-                </motion.div>
+                {isSuccess && (
+                  <div className="rounded-xl border border-emerald-400/20 bg-emerald-400/10 px-4 py-3 text-sm text-emerald-200">
+                    Дякуємо. Ваш запит успішно надіслано.
+                  </div>
+                )}
               </form>
 
               <div className="mt-6 flex flex-col gap-2 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
