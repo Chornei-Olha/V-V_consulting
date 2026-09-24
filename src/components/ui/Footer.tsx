@@ -86,12 +86,6 @@ export default function ContactSectionDark() {
                   >
                     +38 097 014 40 14
                   </a>
-                  <a
-                    href="tel:+380969160062"
-                    className="block text-base font-medium text-blue-300 transition hover:text-blue-200"
-                  >
-                    +38 096 916 00 62
-                  </a>
                 </div>
               </div>
 

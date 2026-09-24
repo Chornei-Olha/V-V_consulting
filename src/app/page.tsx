@@ -57,7 +57,7 @@ const jsonLd = {
     addressLocality: 'Київ',
     addressCountry: 'UA',
   },
-  telephone: ['+380970144014', '+380969160062'],
+  telephone: ['+380970144014'],
   email: 'thevvvgroup@gmail.com',
   areaServed: 'UA',
 };
